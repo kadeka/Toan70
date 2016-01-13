@@ -5,7 +5,7 @@ Template.addproducts.events({
         var desc = $('#desc').val();
         var img = Session.get('ADDIMAGEID');
         var cate = $('#cate').val();
-        var location = $('#location').val();
+        var location = Session.get("locationID");
         var address = $('#address').val();
         var price = $('#price').val();
         var qty = $('#qty').val();
@@ -25,7 +25,7 @@ Template.addproducts.events({
     },
     'change #local':function(){
         var locatID = $('#local').val();
-        alert("locat somaly: "+locatID);
+        //alert("locat somaly: "+locatID);
         Session.set("locationID",locatID);
     }
 });
@@ -58,6 +58,14 @@ Template.manageproducts.helpers({
     getCat:function(){
         var catID = this.cateId;
         return categories.find({_id:catID});
+    },
+    getLocal:function(){
+        var localID = this.location;
+        return locations.findOne({_id:localID});
+    },
+    getAddress:function(){
+        var id = this.address;
+        return address.findOne({_id:id});
     }
 });
 Template.manageproducts.events({
@@ -76,7 +84,7 @@ Template.editproduct.events({
         var desc = $('#desc').val();
         var img = Session.get('ADDIMAGEID');
         var cate = $('#cate').val();
-        var location = $('#location').val();
+        var location = Session.get("locationID");
         var address = $('#address').val();
         var price = $('#price').val();
         var qty = $('#qty').val();
@@ -102,6 +110,11 @@ Template.editproduct.events({
                 Session.set('ADDIMAGEID', fileObj._id);
             });
         }
+    },
+    'change #local':function(){
+        var locatID = $('#local').val();
+        //alert("locat somaly: "+locatID);
+        Session.set("locationID",locatID);
     }
 });
 Template.editproduct.helpers({
@@ -116,16 +129,25 @@ Template.editproduct.helpers({
         return locations.find();
     },
     currentLocat:function(){
-        var id = this._id;
+        var id = this.location;
         return locations.find({_id:id});
     },
     getAdd:function(){
-        var locatID = Session.get("locationID");
-        return address.find({locatId:locatID});
+        return address.find({});
     },
     currentAdd:function(){
-        var id = this._id;
-        var locatID = Session.get("locationID");
-        return address.find({});
+        var id = this.address;
+        return address.find({_id:id});
+    },
+    addName: function(name){
+        if(name==0 || name=='' || name=='undefined' || name==null)
+            return;
+        var result = address.findOne({_id:name});
+        console.log(result);
+        if(result){
+            Session.set('data',result.name);
+            return result.name;
+        }
+        
     }
 });

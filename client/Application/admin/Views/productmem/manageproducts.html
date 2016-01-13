@@ -21,6 +21,8 @@
                                         <th>Image</th>
                                         <th>Name</th>
                                         <th>Categories</th>
+                                        <th>Location</th>
+                                        <th>Address</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -33,6 +35,12 @@
                                             {{#each getCat}}
                                                 <td>{{title}}</td>
                                             {{/each}}
+                                            {{#with getLocal}}
+                                                <td>{{name}}</td>
+                                            {{/with}}
+                                            {{#with getAddress}}
+                                                <td>{{name}}</td>
+                                            {{/with}}
                                             <td>
                                                 <a href="/Editproduct/{{_id}}">Update</a> |
                                                 <a href="#" id="remove-prod">Delete</a>
