@@ -41,8 +41,26 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label>Location</label>
+                                        <select class="form-control" id="local" name="loca">
+                                            {{#each currentLocat}}
+                                                <option value="{{_id}}" style="display:none">{{name}}</option>
+                                            {{/each}}
+                                            {{#each getLocat}}
+                                                <option value="{{_id}}">{{name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label>Address</label>
-                                        <input class="form-control" placeholder="Enter Your Address" id="address" value="{{address}}">
+                                        <select class="form-control" id="address">
+                                            {{#each currentAdd}}
+                                                <option value="{{_id}}" style="display:none">{{name}}</option>
+                                            {{/each}}
+                                            {{#each getAdd}}
+                                                <option value="{{_id}}">{{name}}</option>
+                                            {{/each}}
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Price</label>
