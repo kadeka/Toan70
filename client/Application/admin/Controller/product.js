@@ -1,5 +1,5 @@
 Template.AddProduct.events({
-	'click #btn-save':function(e){
+	'submit form':function(e){
 		e.preventDefault();
 		var name = $('#name').val();
 		var desc = $('#desc').val();
@@ -11,6 +11,9 @@ Template.AddProduct.events({
         var qty = $('#qty').val();
         var phone = $('#phone').val();
         var email = $('#email').val();
+        if (name == null || name == "") {
+        $("#errorTtile").text("Please input name").css("color","red");
+      }
 		Meteor.call('addProduct',name,desc,img,cate,location,address,price,qty,phone,email);
 		Router.go('/DisplayProduct');
 	},

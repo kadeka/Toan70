@@ -18,38 +18,37 @@
                                 <form role="form">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input class="form-control" placeholder="Enter Product Name" id="name">
+                                        <input class="form-control" placeholder="Enter Product Name" id="name" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea class="form-control" placeholder="Enter Description" id="desc" rows="7"></textarea>
+                                        <textarea class="form-control" placeholder="Enter Description" id="desc" rows="7" required></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Image</label>
-                                        <input type="file" id="img" class="form-control">
+                                        <input type="file" id="img" class="form-control" required>
                                     </div>
                                     <div class="form-group">
-                                    	<label>Categories</label>
-                                    	<select class="form-control" id="cate">
-                                    		<option>-- Select Category --</option>
+                                        <label>Categories</label>
+                                        <select class="form-control" id="cate" required>
+                                    
                                             {{#each getCategory}}
                                                 <option value="{{_id}}">{{title}}</option>
                                             {{/each}}
-                                    	</select>
+                                        </select>
                                     </div>
-                                    <div class="form-group">
+                                     <div class="form-group">
                                         <label>Location</label>
-                                        <select class="form-control" id="local" name="loca">
-                                            <option>-- Select Location --</option>
+                                        <select class="form-control" id="local" name="loca" required>
+                                          
                                             {{#each getLocat}}
                                                 <option value="{{_id}}">{{name}}</option>
                                             {{/each}}
                                         </select>
-                                    </div>
+                                    </div>                                    
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <select class="form-control" id="address">
-                                            <option>-- Select Address --</option>
+                                        <select class="form-control" id="address" required>
                                             {{#each getAdd}}
                                                 <option value="{{_id}}">{{name}}</option>
                                             {{/each}}
@@ -57,19 +56,19 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Price</label>
-                                        <input class="form-control" placeholder="Enter Your Price" id="price">
+                                        <input class="form-control" placeholder="Enter Your Price" id="price" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Quantity</label>
-                                        <input class="form-control" placeholder="Enter Your Quantity" id="qty">
+                                        <input class="form-control" placeholder="Enter Your Quantity" id="qty" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Your E-mail</label>
-                                        <input class="form-control" placeholder="Enter Your E-mail" id="email">
+                                        <input class="form-control" placeholder="Enter Your E-mail" id="email" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Your Phone Number</label>
-                                        <input class="form-control" placeholder="Enter Your Phone Number" id="phone">
+                                        <input class="form-control" placeholder="Enter Your Phone Number" id="phone" required>
                                     </div>
                                     <div class="form-group pull-right">
                                         <button type="submit" id="btn-save" class="btn-black">Save</button>

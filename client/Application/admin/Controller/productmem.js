@@ -1,5 +1,5 @@
 Template.addproducts.events({
-    'click #btn-save':function(e){
+    'submit form':function(e){
         e.preventDefault();
         var name = $('#name').val();
         var desc = $('#desc').val();
