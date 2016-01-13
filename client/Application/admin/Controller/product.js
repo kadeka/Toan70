@@ -57,7 +57,16 @@ Template.disProduct.helpers({
 	getCate:function(){
 		var catID = this.cateId;
 		return categories.find({_id:catID});
-	}
+	},
+    getLocal:function(){
+        var localID = this._id;
+        return locations.find({_id:localID});
+    },
+    getAddress:function(){
+        var id = this._id;
+        return address.find({_id:id});
+    }
+
 });
 Template.disProduct.events({
 	'click #remove-art':function(){
@@ -119,12 +128,21 @@ Template.EditProduct.helpers({
         return locations.find({_id:id});
     },
     getAdd:function(){
-        var locatID = Session.get("locationID");
-        return address.find({locatId:locatID});
+        return address.find({});
     },
     currentAdd:function(){
         var id = this._id;
-        var locatID = Session.get("locationID");
-        return address.find({});
+        return address.find({_id:id});
+    },
+    addName: function(name){
+        if(name==0 || name=='' || name=='undefined' || name==null)
+            return;
+        var result = address.findOne({_id:name});
+        console.log(result);
+        if(result){
+            Session.set('data',result.name);
+            return result.name;
+        }
+        
     }
 });
