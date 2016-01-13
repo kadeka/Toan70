@@ -5,7 +5,7 @@ Template.AddProduct.events({
 		var desc = $('#desc').val();
 		var img = Session.get('ADDIMAGEID');
 		var cate = $('#cate').val();
-        var location = $('#location').val();
+        var location = Session.get("locationID");
         var address = $('#address').val();
         var price = $('#price').val();
         var qty = $('#qty').val();
@@ -25,7 +25,7 @@ Template.AddProduct.events({
     },
      'change #local':function(){
         var locatID = $('#local').val();
-        alert("locat somaly: "+locatID);
+        //alert("locat somaly: "+locatID);
         Session.set("locationID",locatID);
     }
 });
