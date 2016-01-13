@@ -43,15 +43,17 @@
                                 </div>  
                             </div>
                             <div class="col-md-3">
-                            <form class="form-search">
-                                {{> esInput index="products" class=" form-control input-lg sb-search-input nav-livesearch-input js-search-term text" placeholder="Search here..." aria-label="Search Projects" data-tracker-name="Header Live Search"}}
-                            </form>
-                        </div>
+                                <form class="form-search">
+                                    {{> esInput index="products" class=" form-control input-lg sb-search-input nav-livesearch-input js-search-term text" placeholder="Search here..." aria-label="Search Projects" data-tracker-name="Header Live Search"}}
+                                </form>
+                            </div>
+                            {{#if currentUser}}
                             <div class="col-md-3 pull-right">
                                 <div class="row">
                                     <a href="/addproducts"><button class="btn btn-warning pull-right"><i class="fa fa-plus-circle"></i> POST FREE ADS</button></a>
                                 </div>
                             </div>
+                            {{/if}}
                         </div>
                    </div>
                     </div>
