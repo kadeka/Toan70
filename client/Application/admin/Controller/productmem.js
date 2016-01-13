@@ -23,9 +23,9 @@ Template.addproducts.events({
             });
         }
     },
-    'change #location':function(){
-        var locatID = $('#location').val();
-        alert("locat: "+locatID);
+    'change #local':function(){
+        var locatID = $('#local').val();
+        alert("locat somaly: "+locatID);
         Session.set("locationID",locatID);
     }
 });
