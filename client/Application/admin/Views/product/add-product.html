@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Location</label>
-                                        <select class="form-control" id="location">
+                                        <select class="form-control" id="local" name="loca">
                                             <option>-- Select Location --</option>
                                             {{#each getLocat}}
                                                 <option value="{{_id}}">{{name}}</option>
@@ -55,6 +55,7 @@
                                                 <option value="{{_id}}">{{name}}</option>
                                             {{/each}}
                                         </select>
+                                        
                                     </div>
                                     <div class="form-group">
                                         <label>Price</label>
