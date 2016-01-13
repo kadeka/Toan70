@@ -8,12 +8,7 @@ Template.header.helpers({
 	getCategory:function(){
         var cateID = Session.get("categoryID");
         return products.find({cateId:cateID});
-    },
-    getprofile:function(){
-	  var id = Meteor.userId();
-	  return Meteor.users.findOne({_id:id});
-	}
-
+    }
 });
 Template.header.events({
 	'change #listCate':function(e){

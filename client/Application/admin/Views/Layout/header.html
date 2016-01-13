@@ -10,9 +10,7 @@
                         <div class="col-md-12 lo-re">
                             {{#if currentUser}}
                                 <span><a href="#" id="logout">Logout | </a></span>
-                                {{#with getprofile}}
-                                    <span><a href="#">{{profile.username}}</a></span>
-                                {{/with}}
+                                <span><a href="#">{{currentUser.profile.username}}</a></span>
                             {{else}}
                                 <span><a href="login"><i class="fa fa-lock"></i> Register</a></span>
                                
