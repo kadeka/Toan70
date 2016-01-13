@@ -6,14 +6,15 @@ Template.login.events({
         var lname = $('#lname').val();
         var email = $('#email').val();
         var password = $('#password').val();
+        alert("Your Register Success!!!");
          Meteor.call('registerUser',username,fname,lname,email,password);
     }
 });
 Template.login.events({
     'click #login': function(event){
         event.preventDefault();
-        var email = $('#uname').val();
-        var password = $('#password').val();
+        var email = $('[name=email]').val();
+        var password = $('[name=password]').val();
         Meteor.loginWithPassword(email, password, function(error){
             if(error){
                 console.log(error.reason);
@@ -23,8 +24,8 @@ Template.login.events({
                  Session.set("loginError","");
                  var loggedInUser = Meteor.user();
                  var group = 'mygroup';
-                 if (Roles.userIsInRole(loggedInUser, ['Admin'], group)) {
-                    Router.go('/AddProduct');
+                 if (Roles.userIsInRole(loggedInUser, ['admin'], group)) {
+                    Router.go('/admin');
                     $('.close').click();
                  }
                  else if (Roles.userIsInRole(loggedInUser, ['member'], group)) {    
@@ -34,6 +35,7 @@ Template.login.events({
                  }
                  else{
 
+                    //Router.go('/dailyPopup');
                      Router.go('/');
                      $('.close').click();
                  }
