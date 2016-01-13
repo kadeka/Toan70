@@ -36,12 +36,12 @@
                                             {{#each getCate}}
                                                 <td>{{title}}</td>
                                             {{/each}}
-                                            {{#each getLocal}}
+                                            {{#with getLocal}}
                                                 <td>{{name}}</td>
-                                            {{/each}}
-                                            {{#each getAddress}}
+                                            {{/with}}
+                                            {{#with getAddress}}
                                                 <td>{{name}}</td>
-                                            {{/each}}
+                                            {{/with}}
                                             <td>
                                                 <a href="/UpdateProduct/{{_id}}" id="update-art">update</a> |
                                                 <a href="#" id="remove-art">delete</a>

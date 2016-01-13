@@ -59,12 +59,12 @@ Template.disProduct.helpers({
 		return categories.find({_id:catID});
 	},
     getLocal:function(){
-        var localID = this._id;
-        return locations.find({_id:localID});
+        var localID = this.location;
+        return locations.findOne({_id:localID});
     },
     getAddress:function(){
-        var id = this._id;
-        return address.find({_id:id});
+        var id = this.address;
+        return address.findOne({_id:id});
     }
 
 });

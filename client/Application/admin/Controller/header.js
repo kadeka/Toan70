@@ -15,13 +15,13 @@ Template.header.events({
 		e.preventDefault();
 		var id = $('#listCate').val();
 		Session.set("categoriesId",id);
-		alert(id);
+		//alert(id);
 		//Router.go("/productList");
 		//Router.go("beauty");
 	},
 	'change #location':function(){
         var locatID = $('#location').val();
-        alert("locat: "+locatID);
+        //alert("locat: "+locatID);
         Session.set("locationID",locatID);
     }
     
