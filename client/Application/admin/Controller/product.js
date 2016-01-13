@@ -84,7 +84,7 @@ Template.EditProduct.events({
         var desc = $('#desc').val();
         var img = Session.get('ADDIMAGEID');
         var cate = $('#cate').val();
-        var location = $('#location').val();
+        var location = Session.get("locationID");
         var address = $('#address').val();
         var price = $('#price').val();
         var qty = $('#qty').val();
@@ -110,6 +110,11 @@ Template.EditProduct.events({
 	            Session.set('ADDIMAGEID', fileObj._id);
           	});
         }
+    },
+     'change #local':function(){
+        var locatID = $('#local').val();
+        //alert("locat somaly: "+locatID);
+        Session.set("locationID",locatID);
     }
 });
 Template.EditProduct.helpers({
@@ -124,14 +129,14 @@ Template.EditProduct.helpers({
         return locations.find();
     },
     currentLocat:function(){
-        var id = this._id;
+        var id = this.location;
         return locations.find({_id:id});
     },
     getAdd:function(){
         return address.find({});
     },
     currentAdd:function(){
-        var id = this._id;
+        var id = this.address;
         return address.find({_id:id});
     },
     addName: function(name){
